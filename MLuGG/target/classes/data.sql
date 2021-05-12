@@ -9,5 +9,5 @@ insert into PRODUCT_TBL (id, product, obs, state, costperday, costperhour) value
 
 
 insert into CLIENT_TBL (id, name, uf, city, street, complement, number, cep, phonenumber) values (1, 'Qiron', 'RS', 'Santa Maria', 'Av. Roraima', 'Camobi, Prédio 2','11', '98000000', '(55) 3220-8836');
-insert into CLIENT_TBL (id, name, uf, city, street, complement, number, cep, phonenumber) values (2, 'Qiron', 'RS', 'Santa Maria', 'Av. Roraima', 'Camobi, Prédio 2','11', '98000000', '(55) 3220-8836');
-insert into CLIENT_TBL (id, name, uf, city, street, complement, number, cep, phonenumber) values (3, 'Qiron', 'RS', 'Santa Maria', 'Av. Roraima', 'Camobi, Prédio 2','11', '98000000', '(55) 3220-8836');
+insert into CLIENT_TBL (id, name, uf, city, street, complement, number, cep, phonenumber) values (2, 'UFSM', 'RS', 'Santa Maria', 'Av. Roraima', 'Camobi, Reitoria','11', '98000000', '(55) 3220-1111');
+insert into CLIENT_TBL (id, name, uf, city, street, complement, number, cep, phonenumber) values (3, 'UFN', 'RS', 'Santa Maria', 'R. dos Andradas', 'Centro','1614', '97010030', '(55) 3220-1200');
