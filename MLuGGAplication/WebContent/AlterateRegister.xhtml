@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+   
+
+   	
+   	<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+	   <ui:composition template="/WEB-INF/template/template.xhtml">
+	   
+	       	<ui:define name="conteudo" >
+	       	
+	        	<p:panel id="AlterateRegisterPanel" header="Alterar Usuário" style="margin-top: 2vh;">
+	         		
+	         		<h:form id="NewProductForm">
+	         		
+		         		<h:panelGrid columns="3" cellpadding="2">
+		         		   <div class="ui-inputgroup">		                    
+			                    <span class="ui-inputgroup-addon"><i class="pi pi-tag"></i></span>
+			                    <p:inputNumber placeholder="Id" name="id" id="icon11" 
+			                    value="#{personBean.person.id}" style="width: 1vh"/>
+			                    <p:message for="icon11" display="icon"/>
+			                    </div>
+			            </h:panelGrid>
+		         		<h:panelGrid columns="6" cellpadding="2">
+		         		
+		         			<div class="ui-inputgroup">
+		         				<span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+			                    <p:inputText placeholder="#{personBean.person.username}" name="username" id="icon1" value="#{personBean.person.username}" style="width: 12rem"/>
+			                    <p:message for="icon1" display="icon"/>
+			                </div>
+			                
+			                <div class="ui-inputgroup">
+		         				<span class="ui-inputgroup-addon"><i class="pi pi-key"></i></span>
+			                    <p:inputText placeholder="Senha" name="pass" id="icon2" value="#{personBean.person.pass}" style="width: 12rem" type="password"/>
+			                    <p:message for="icon2" display="icon"/>
+			                </div>
+			                
+			                <div class="ui-inputgroup">
+		         				<span class="ui-inputgroup-addon"><i class="pi pi-envelope"></i></span>
+			                    <p:inputText placeholder="#{personBean.person.email}" name="email" id="icon3" value="#{personBean.person.email}" style="width: 12rem"/>
+			                    <p:message for="icon3" display="icon"/>
+			                </div>
+			                
+			                <div class="ui-inputgroup">
+		         				<span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+			                    <p:inputText placeholder="#{personBean.person.role}" name="role" id="icon4" value="#{personBean.person.role}" style="width: 12rem"/>
+			                    <p:message for="icon4" display="icon"/>
+			                </div>
+			                
+			                    
+	    	
+		         			</h:panelGrid>
+		         				
+				         		<p:commandButton icon="pi pi-save" value="SALVAR" action="#{personBean.setAlteratePersonAPI(personBean.person)}"
+				        		styleClass="ui-button-raised ui-button-success"  type="submit" title="SALVAR" style="margin: 5px; width: 10rem">
+				        		</p:commandButton>
+				        		
+				        		<p:commandButton   icon="pi pi-undo" value="CANCELAR" action="Registers"
+								styleClass="ui-button-raised ui-button-danger" title="CANCELAR" style="margin: 5px; width: 10rem">
+								</p:commandButton>
+						
+	        		</h:form>
+	         
+	        	</p:panel> 
+	       	
+	       	
+	       	
+	       	</ui:define>
+	   </ui:composition>
+  	</f:view>
+</html>

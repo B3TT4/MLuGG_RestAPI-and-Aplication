@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+   
+   
+   	<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+	   <ui:composition template="/WEB-INF/template/template.xhtml">
+	         <ui:define name="conteudo">
+	         <p:panel id="NewProductsPanel" header="Novo Produto" style="margin-top: 2vh;">
+				<h:form id="NewProductForm">
+	         		<h:panelGrid columns="6" cellpadding="2">
+	         			<div class="ui-inputgroup">
+	         				<span class="ui-inputgroup-addon"><i class="pi pi-shopping-cart"></i></span>
+		                    <p:inputText placeholder="Nome do Produto" name="product" id="icon1" value="#{productBean.product.product}" style="width: 12rem"/>
+		                    <p:message for="icon1" display="icon"/>
+		                </div>
+		                
+		                <div class="ui-inputgroup">
+						       <span class="ui-inputgroup-addon"><i class="pi pi-bookmark"></i></span>
+						       <p:selectOneMenu id="option" value="#{productBean.product.state}" style="width: 12rem">
+							       <f:selectItem itemLabel="Funcional" itemValue="Funcional"/>
+							       <f:selectItem itemLabel="Fora de Linha" itemValue="Fora de Linha"/>
+							       <f:selectItem itemLabel="Reparos" itemValue="Reparos"/>
+						       </p:selectOneMenu>
+						       <p:message for="option" display="icon"/>
+						</div>
+	         				
+
+
+		                    
+		               <div class="ui-inputgroup">	                    
+		                    <span class="ui-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+		                    <p:inputNumber placeholder="Custo por Dia" name="costperday" id="icon7"
+		                    symbol=" R$" decimalPlaces="2" value="#{productBean.product.costperday}" style="width: 14rem"
+		                    symbolPosition="s" decimalSeparator="," thousandSeparator="." minValue="0"/>
+		                    <p:message for="icon7" display="icon"/>
+		                    </div>
+
+		                    
+		                <div class="ui-inputgroup">		                    
+		                    <span class="ui-inputgroup-addon"><i class="pi pi-money-bill"></i></span>
+		                    <p:inputNumber placeholder="Custo por Hora" name="costperhour" id="icon6" 
+		                    symbol=" R$" decimalPlaces="2" value="#{productBean.product.costperhour}" style="width: 14rem"
+		                    symbolPosition="s" decimalSeparator="," thousandSeparator="."  minValue="0"/>
+		                    <p:message for="icon6" display="icon"/>
+		                    </div>
+    	
+	         			</h:panelGrid>
+	         			
+	         			<h:panelGrid columns="3" cellpadding="2">
+		                    
+	         			<div class="ui-inputgroup">	 
+		         			<span class="ui-inputgroup-addon"><i class="pi pi-info-circle"></i></span>
+			                <p:inputTextarea placeholder="Observações" name="obs" id="icon9" value="#{productBean.product.obs}" 
+			                rows="4" cols="33" style="width: 14rem"/>
+			                <p:message for="icon9" display="icon"/>
+			                </div>
+			                
+			                
+			            </h:panelGrid>
+			            
+					
+			         		<p:commandButton icon="pi pi-save" value="SALVAR" action="#{productBean.setSaveProductAPI(productBean.product)}"
+			        		styleClass="ui-button-raised ui-button-success"  type="submit" title="SALVAR" style="margin: 5px; width: 10rem">
+			        		</p:commandButton>
+			        		
+			        		<p:commandButton   icon="pi pi-undo" value="CANCELAR" action="Products"
+							styleClass="ui-button-raised ui-button-danger" title="CANCELAR" style="margin: 5px; width: 10rem">
+							</p:commandButton>
+						
+	        	</h:form>	         
+			</p:panel> 
+	        </ui:define>
+	   </ui:composition>
+  	</f:view>
+</html>

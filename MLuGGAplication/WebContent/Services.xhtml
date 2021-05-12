@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+   
+
+   	
+   	<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+	   <ui:composition template="/WEB-INF/template/template.xhtml">
+	   
+	         <ui:define name="conteudo" >
+	         <p:panel id="ServicesPanel" header="Serviços" style="margin-top: 2vh;">
+		         <h:form  id="formService" method="post">
+				    <div class="card" >
+				        <p:dataTable var="service" value="#{servicesOnBean.getServicesOnAPI()}" showGridlines="true" style="margin-top: 2rem">
+									
+							<p:column headerText="ID" style="width: 2vh ">
+				                <h:outputLabel value="#{service.id}"/>
+				            </p:column>
+				            
+				            <p:column headerText="Serviço">
+				                <h:outputText value="#{service.serviceon}" />
+				            </p:column>
+				
+				            <p:column headerText="Cliente" style="width: 30vh">
+				                <h:outputText value="#{service.client.name}" />
+				            </p:column>
+				
+				            <p:column headerText="Localização" style="width: 25vh">
+				                <h:outputText value="#{service.location}" />
+				            </p:column>
+				            
+				        	<p:column headerText="Custo Total" style="width: 20vh">
+				                <h:outputText value="R$#{service.cost}0" />
+				           	</p:column>
+				            
+				           	<p:column headerText="Dia de Inicio" style="width: 25vh">
+				                <h:outputText value="#{service.dayinn}" />
+				           	</p:column>
+							
+				            
+				            <p:column style="width: 2rem">
+					                <p:commandButton  icon="pi pi-info-circle"  action="#{servicesOnBean.getServiceOnToInfo(service)}"
+							   		styleClass="rounded-button ui-button-success" title="Informações">
+				    				</p:commandButton>
+					        </p:column>
+
+				            <p:column style="width: 2rem">
+				                <p:commandButton  icon="pi pi-trash"  update="formService"  action="#{servicesOnBean.setExcludeServiceAPI(service.id)}"
+						   		styleClass="rounded-button ui-button-danger" title="Excluir" onclick = "alert('Serviço Excluído com Sucesso');">
+			    				</p:commandButton>
+				            </p:column>
+				        </p:dataTable>
+				    </div>
+				 </h:form>
+	      	</p:panel>
+	        </ui:define>
+	   </ui:composition>
+  	</f:view>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+           "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+   
+
+   	
+   	<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+	   <ui:composition template="/WEB-INF/template/template.xhtml">
+	   
+	        <ui:define name="conteudo" >
+	        <p:panel id="ProductsPanel" header="Produtos" style="margin-top: 2vh;">
+	        
+	        <h:form  id="formProduct" method="post">
+			    <div class="card" >
+			   
+			        <p:dataTable var="product" value="#{productBean.getProductsAPI()}" showGridlines="true">
+			
+						<p:column headerText="ID" style="width: 2vh ">
+			                <h:outputLabel value="#{product.id}"/>
+			            </p:column>
+			            
+			            <p:column headerText="Produto" style="width: 20vh">
+			                <h:outputText value="#{product.product}" />
+			            </p:column>
+			
+			            <p:column headerText="Observações">
+			                <h:outputText value="#{product.obs}" />
+			            </p:column>
+			
+			            <p:column headerText="Estado" style="width: 15vh">
+			                <h:outputText value="#{product.state}" />
+			            </p:column>
+			            
+			        	<p:column headerText="Custo Diário" style="width: 20vh">
+			                <h:outputText value="R$#{product.costperday}0" />
+			            </p:column>
+			            
+			            <p:column headerText="Custo por Hora" style="width: 20vh">
+			                <h:outputText value="R$#{product.costperhour}0" />
+			            </p:column>
+			           
+			           
+			           <p:column style="width: 2rem">
+			                <p:commandButton  icon="pi pi-pencil"  
+					   		styleClass="rounded-button ui-button-success" title="Alterar" action="#{productBean.getProduct(product)}">
+		    				</p:commandButton>
+			            </p:column>
+		            
+			            
+			            <p:column style="width: 2rem">
+			                <p:commandButton  icon="pi pi-trash"  update="formProduct" action="#{productBean.setExcludeProductAPI(product.id)}" 
+					   		styleClass="rounded-button ui-button-danger" title="Excluir" onclick = "alert('Produto Excluído com Sucesso');">
+		    				</p:commandButton>
+			            </p:column>
+			        </p:dataTable>
+			    </div>
+			    
+			 </h:form>
+	          
+	        
+	        </p:panel>  
+	        </ui:define>
+	   </ui:composition>
+  	</f:view>
+</html>
