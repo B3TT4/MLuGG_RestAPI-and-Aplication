@@ -10,5 +10,4 @@ import com.rmp.MLuGG.Models.Person;
 @Repository
 public interface PersonRespository extends JpaRepository<Person, Long>{
 	Person findByUsername(String username);
-
 }

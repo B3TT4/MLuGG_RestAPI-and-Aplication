@@ -25,10 +25,7 @@ public class Person {
 	public String username;
 	@ApiModelProperty(notes = "Senha de usuário resgistrado", name="pass")
 	@Column(nullable = false)
-	public String pass;
-	@ApiModelProperty(notes = "Email de usuário resgistrado", name="email")
-	@Column(nullable = false)
-	public String email;
+	public String password;
 	@ApiModelProperty(notes = "Papel do usuário registrado", name="role")
 	@Column(nullable = false)
 	private String role;
@@ -38,8 +35,7 @@ public class Person {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", password='" + pass + '\'' +
-                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 '}';
     }
@@ -51,14 +47,6 @@ public class Person {
 
 	public void setRole(String role) {
 		this.role = role;
-	}
-
-	
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public Long getId() {
 		return id;
@@ -72,11 +60,11 @@ public class Person {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getPass() {
-		return pass;
+	public String getPassword() {
+		return password;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPass(String password) {
+		this.password = password;
 	}
 	
 
